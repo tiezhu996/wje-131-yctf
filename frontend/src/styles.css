@@ -129,7 +129,7 @@ body {
 
 .gantt-row {
   display: grid;
-  grid-template-columns: 220px 1fr 110px;
+  grid-template-columns: 220px 1fr 280px;
   gap: 14px;
   align-items: center;
   padding: 10px 0;
@@ -151,6 +151,21 @@ body {
   min-width: 38px;
 }
 
+.gantt-bar-delayed {
+  background: #c0492f;
+}
+
+.gantt-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.gantt-editor .ant-picker {
+  width: 100%;
+}
+
 .low-stock {
   background: #fff1f0;
 }
@@ -158,7 +173,8 @@ body {
 @media (max-width: 980px) {
   .metric-grid,
   .grid-two,
-  .board {
+  .board,
+  .gantt-row {
     grid-template-columns: 1fr;
   }
 

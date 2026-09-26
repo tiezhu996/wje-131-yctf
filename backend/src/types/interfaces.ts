@@ -23,6 +23,11 @@ export interface DashboardSummary {
   }>;
 }
 
+export interface PhaseSchedulePayload {
+  plannedStartDate: string;
+  plannedEndDate: string;
+}
+
 export interface TimesheetRow {
   userId: number;
   userName: string;

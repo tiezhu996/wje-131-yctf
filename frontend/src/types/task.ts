@@ -17,6 +17,11 @@ export interface TaskPhase {
   subTasks?: SubTask[];
 }
 
+export interface PhaseSchedulePayload {
+  plannedStartDate: string;
+  plannedEndDate: string;
+}
+
 export interface SubTask {
   id: number;
   phaseId: number;

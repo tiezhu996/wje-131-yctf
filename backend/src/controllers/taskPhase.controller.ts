@@ -2,6 +2,7 @@ import { Body, Controller, Get, Param, Patch, Post, Req, UseGuards } from '@nest
 import { Request } from 'express';
 import { rbacMiddleware } from '../middlewares/rbac.middleware';
 import { UserRole } from '../types/enums';
+import { PhaseSchedulePayload } from '../types/interfaces';
 import { ok } from '../utils/response';
 import { TaskPhaseService } from '../services/taskPhase.service';
 
@@ -18,6 +19,12 @@ export class TaskPhaseController {
   @UseGuards(rbacMiddleware([UserRole.Admin, UserRole.ProjectManager, UserRole.Foreman]))
   async create(@Body() body: Record<string, unknown>, @Req() req: Request) {
     return ok(await this.taskPhaseService.create(body, req.user?.id), '阶段已创建');
+  }
+
+  @Patch(':id/schedule')
+  @UseGuards(rbacMiddleware([UserRole.Admin, UserRole.ProjectManager]))
+  async updateSchedule(@Param('id') id: string, @Body() body: PhaseSchedulePayload, @Req() req: Request) {
+    return ok(await this.taskPhaseService.updateSchedule(Number(id), body, req.user?.id), '阶段排期已更新');
   }
 
   @Patch(':id/progress')

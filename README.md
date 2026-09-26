@@ -16,7 +16,7 @@ docker compose up -d
 ## 项目主要功能
 
 - 项目总览仪表盘：展示在建项目进度、延期预警、本月材料消耗 TOP10。
-- 项目详情甘特图：按阶段和子任务展示施工时间线，预留日期调整入口。
+- 项目详情甘特图：按阶段和子任务展示施工时间线，支持逐行调整阶段计划起止日期；保存时校验与同项目其他阶段的区间冲突并指明冲突阶段，排期越过计划竣工日期自动触发项目延期预警，改回范围内自动解除；已完成阶段及已归档/已完成项目禁止调整。
 - 任务看板：按 Todo / InProgress / Review / Done 管理子任务状态。
 - 材料管理：材料库存、入库、出库、低库存预警和领用记录筛选。
 - 人员工时统计：按人员汇总计划工时、实际工时和利用率。
@@ -132,6 +132,7 @@ docker compose down -v
 - 后端定义：`backend/src/types/enums.ts`
 - 后端实体：`backend/src/models/project.entity.ts`
 - 后端服务：`backend/src/services/project.service.ts`
+- 后端服务：`backend/src/services/taskPhase.service.ts`
 - 后端控制器：`backend/src/controllers/project.controller.ts`
 - 后端种子：`backend/src/services/seed.service.ts`
 - 前端定义：`frontend/src/types/enums.ts`
@@ -139,6 +140,7 @@ docker compose down -v
 - 前端 API：`frontend/src/api/project.ts`
 - 前端共享组件：`frontend/src/components/common/StatusBadge.tsx`
 - 前端页面：`frontend/src/pages/Dashboard.tsx`
+- 前端页面：`frontend/src/pages/ProjectGantt.tsx`
 
 ### TaskStatus
 
