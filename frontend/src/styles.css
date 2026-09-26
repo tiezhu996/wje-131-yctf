@@ -129,7 +129,7 @@ body {
 
 .gantt-row {
   display: grid;
-  grid-template-columns: 220px 1fr 110px;
+  grid-template-columns: 240px 1fr 230px;
   gap: 14px;
   align-items: center;
   padding: 10px 0;
@@ -149,6 +149,12 @@ body {
   background: #2b7a78;
   border-radius: 4px;
   min-width: 38px;
+  transition: left 0.2s ease, width 0.2s ease;
+}
+
+.gantt-bar-draft {
+  background: #d4881f;
+  box-shadow: 0 0 0 2px rgba(212, 136, 31, 0.25);
 }
 
 .low-stock {
